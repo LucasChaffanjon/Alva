@@ -2,18 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import "./styles/chiffres.scss";
 
 const Chiffres = () => {
-  const [hasAnimated, setHasAnimated] = useState(false); // Nouvel état pour bloquer l'animation
+  const [hasAnimated, setHasAnimated] = useState(false);
   const [visible, setVisible] = useState(false);
   const chiffresRef = useRef(null);
   const [values, setValues] = useState([0, 0, 0]);
-
-  const targets = [83, 35, 98];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        // On ne déclenche "visible" que si l'animation n'a pas encore eu lieu
         if (entry.isIntersecting && !hasAnimated) {
           setVisible(true);
         }
@@ -23,9 +20,11 @@ const Chiffres = () => {
 
     if (chiffresRef.current) observer.observe(chiffresRef.current);
     return () => observer.disconnect();
-  }, [hasAnimated]); // On ré-observe si besoin, mais hasAnimated bloquera le trigger
+  }, [hasAnimated]);
 
   useEffect(() => {
+    // Définition des cibles à l'intérieur du hook pour éviter les erreurs de dépendances
+    const targets = [83, 35, 98];
     let interval;
 
     if (visible && !hasAnimated) {
@@ -45,14 +44,14 @@ const Chiffres = () => {
     }
 
     return () => clearInterval(interval);
-  }, [visible, hasAnimated, targets]);
+  }, [visible, hasAnimated]); // targets n'est plus nécessaire ici
 
   return (
     <div className="chiffres-cont" ref={chiffresRef}>
-      <h1 className="title">
+      <h2 className="title">
         Nos résultats en gestion de locations courte durée à Besançon et
         Villeurbanne
-      </h1>
+      </h2>
       <ul>
         <li>
           <h1>{values[0]}%</h1>
