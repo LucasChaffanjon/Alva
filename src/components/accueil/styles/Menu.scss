@@ -246,17 +246,17 @@
       border-radius: 12px;
       font-size: 1rem;
       background: #fafafa;
-      color: #333; // Force le texte en noir
-
-      /* Correctif iOS Bleu */
+      color: #333; 
+      outline: none;
+      -webkit-tap-highlight-color: transparent; 
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-
       &:focus {
         outline: none;
         border-color: var(--green);
         background: white;
+        box-shadow: none;
       }
     }
 
