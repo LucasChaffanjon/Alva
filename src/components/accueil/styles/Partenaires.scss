@@ -1,0 +1,93 @@
+#partners {
+  padding: 10px 0 10px;
+  text-align: center;
+
+  h3 {
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 5px;
+  }
+
+  .marquee {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    // option : léger fondu sur les bords
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      pointer-events: none;
+      z-index: 2;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 1),
+        rgba(255, 255, 255, 0)
+      );
+    }
+    &::after {
+      right: 0;
+      transform: rotate(180deg);
+    }
+    &::before {
+      left: 0;
+    }
+
+    .track {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      width: max-content; // s’ajuste au contenu
+      animation: scroll-left 25s linear infinite;
+      will-change: transform;
+    }
+
+    &:hover .track {
+      animation-play-state: paused;
+    } // pause au survol
+  }
+
+  .logo {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    height: 48px; // hauteur de ligne
+    img {
+      max-height: 32px; // taille des logos
+      max-width: 140px;
+      filter: grayscale(100%); // look discret
+      opacity: 0.9;
+      transition: filter 0.2s, opacity 0.2s, transform 0.2s;
+    }
+    img:hover {
+      filter: none;
+      opacity: 1;
+      transform: scale(1.03);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .logo img {
+      max-height: 40px;
+      max-width: 180px;
+    }
+    .marquee .track {
+      gap: 64px;
+    }
+  }
+}
+
+/* Animation défilement infini */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  } // car on a dupliqué la liste
+}

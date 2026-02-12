@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@400;500;600&display=swap");
+
+.Exemple {
+  max-width: 850px;
+  margin: 80px auto;
+  padding: 0 1.5rem;
+  font-family: "Inter", sans-serif;
+  color: #1a1a1a;
+  line-height: 1.7;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    width: 100%;
+    font-family: "Inria Serif", serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--h);
+  }
+
+  /* Grand bloc principal */
+  .text {
+    width: 100%;
+    position: relative;
+    background: var(--green-bg);
+    border: 1px solid var(--green);
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    padding: 2.5rem 3rem;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+    }
+
+    .decor {
+      position: absolute;
+      width: 120px;
+      opacity: 0.75;
+      pointer-events: none;
+      border-radius: 50%;
+      border: 1px solid var(--green);
+    }
+
+    .decor-top {
+      top: -40px;
+      left: -40px;
+      transform: rotate(-10deg);
+    }
+
+    .decor-bottom {
+      bottom: -40px;
+      right: -40px;
+      transform: rotate(10deg);
+    }
+
+    /* Contenu des blocs */
+    .bloc {
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #f0f0f0;
+
+      // Sécurité anti-débordement
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--green);
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        margin: 0;
+        color: #333;
+        font-size: 1rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          position: relative;
+          padding-left: 1.25rem;
+          margin-bottom: 0.5rem;
+          color: #333;
+
+          strong {
+            white-space: nowrap; // Empêche de couper entre le chiffre et le symbole €
+          }
+
+          &::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+          }
+        }
+      }
+
+      &.calcul {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid var(--green);
+
+        .resultat {
+          margin-top: 1rem;
+          font-size: 1.05rem;
+          font-weight: 600;
+          color: var(--green);
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    margin: 40px auto;
+    padding: 0 1rem; // Moins de marge extérieure
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .text {
+      padding: 1.5rem 1.2rem; // Padding réduit pour laisser de la place au texte
+
+      .decor {
+        display: none; // Désactivé sur mobile pour éviter les bugs visuels
+      }
+
+      .bloc {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+
+        h3 {
+          font-size: 1.1rem;
+        }
+
+        p,
+        ul li {
+          font-size: 0.95rem;
+        }
+
+        &.calcul {
+          padding: 1rem;
+
+          .resultat {
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+  }
+
+  /* Très petits écrans */
+  @media (max-width: 380px) {
+    .text .bloc.calcul ul li {
+      font-size: 0.85rem;
+      strong {
+        white-space: normal; // Permet de couper le calcul final si vraiment trop étroit
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.blog-article {
+  background: #fff;
+
+  .hero img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .back {
+    background: none;
+    border: none;
+    color: var(--green);
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.8rem;
+
+    .chip {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--green);
+      background: rgba(40, 167, 69, 0.08);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .date {
+      color: #777;
+      font-size: 0.9rem;
+    }
+  }
+
+  h1 {
+    font-family: "Inria Serif", serif;
+    color: var(--h);
+    margin: 0 0 0.8rem;
+  }
+
+  .excerpt {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .content {
+    color: #333;
+    line-height: 1.75;
+
+    h3 {
+      font-family: "Inria Serif", serif;
+      color: var(--h);
+      margin-top: 1.2rem;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .hero img {
+      height: 180px;
+    }
+  }
+}

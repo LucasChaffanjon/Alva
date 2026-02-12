@@ -1,0 +1,97 @@
+import React from "react";
+import "./styles/Menu.scss";
+
+const Menu = () => {
+  return (
+    <div id="menu">
+      <form
+        className="formulaire"
+        action="https://docs.google.com/forms/d/e/1FAIpQLScjPFohHI9_cBFABmrzrnUkTyROQAdWsTlK1Vq_BvL_YSLhGg/formResponse
+        "
+        method="POST"
+        target="_blank"
+      >
+        <div>
+          <label>Adresse du bien</label>
+          <input
+            type="text"
+            name="entry.1261560012"
+            placeholder="Ex: 12 rue Victor Hugo"
+            required
+          />
+        </div>
+
+        <div>
+          <label>Ville</label>
+          <input
+            type="text"
+            name="entry.1696718327"
+            placeholder="Ex: Paris"
+            required
+          />
+        </div>
+
+        <div>
+          <label>Type de bien</label>
+          <select name="entry.410455139" required>
+            <option value="">-- Sélectionnez --</option>
+            <option>Studio</option>
+            <option>T2</option>
+            <option>T3</option>
+            <option>T4</option>
+            <option>Maison</option>
+            <option>Autres</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Nombre de chambres</label>
+          <input type="number" name="entry.23772495" min="0" required />
+        </div>
+
+        <div>
+          <label>Nombre de salles de bains</label>
+          <input type="number" name="entry.298792479" min="0" required />
+        </div>
+
+        <div>
+          <label>Adresse mail</label>
+          <input
+            type="email"
+            name="entry.1127713591"
+            placeholder="exemple@mail.com"
+            required
+          />
+        </div>
+
+        <div>
+          <label>Numéro de téléphone</label>
+          <input
+            type="tel"
+            name="entry.631556959"
+            placeholder="06 12 34 56 78"
+            required
+          />
+        </div>
+
+        <button type="submit">Envoyer</button>
+        <div className="CTA">
+          <p>Reserver un appel personalisé</p>
+        </div>
+      </form>
+      <div className="text">
+        <h1>Maximisez vos revenus locatifs</h1>
+        <p>
+          Recevez une estimation personnalisée en quelques clics et découvrez le
+          potentiel réel de votre bien.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Menu;
+
+
+
+06/12 : photos blog

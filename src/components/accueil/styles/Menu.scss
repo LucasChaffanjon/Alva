@@ -1,0 +1,273 @@
+/* ================= GLOBAL ================= */
+#menu {
+  position: relative;
+  overflow: hidden; // Élimine tout slide résiduel
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin-top: 130px; // Aligné sur le header desktop
+    background-image: url("../../../assets/menuimg.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(50%);
+    z-index: 0;
+  }
+}
+
+.menu {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 20px 50px;
+  display: flex;
+  flex-direction: row-reverse; // Formulaire à droite, Texte à gauche
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ================= FORMULAIRE DESKTOP ================= */
+.formulaire {
+  background: rgba(249, 249, 249, 0.95);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 450px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  div {
+    display: flex;
+    flex-direction: column;
+    label {
+      font-weight: bold;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+    input,
+    select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+  }
+
+  span {
+    text-align: center;
+    font-size: 0.85rem;
+    margin: 10px 0;
+    line-height: 1.4;
+  }
+
+  button {
+    padding: 14px;
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    &:hover {
+      background: #5a7d65;
+    } // Ajuste selon ta var --green
+  }
+
+  .success-message {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+  }
+  .error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+/* ================= SECTION TEXTE ================= */
+.text {
+  flex: 1;
+  color: whitesmoke;
+  text-align: left;
+  max-width: 650px;
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 25px;
+  }
+
+  p {
+    font-size: 1.8rem;
+    font-style: italic;
+    opacity: 0.95;
+    line-height: 1.4;
+  }
+}
+
+/* ================= HELPERS DISPLAY ================= */
+.desktop-only {
+  display: flex !important;
+}
+.mobile-only {
+  display: none !important;
+}
+
+/* ================= RESPONSIVE TABLETTE / MOBILE ================= */
+@media (max-width: 1024px) {
+  #menu::before {
+    margin-top: 80px;
+  }
+
+  .menu {
+    flex-direction: column; // Empilement vertical
+    text-align: center;
+    padding-top: 120px;
+  }
+
+  .text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Centre les enfants (H1, P et Bouton)
+
+    h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  .formulaire {
+    max-width: 500px;
+  }
+
+  // Masquage du formulaire desktop et du bouton selon le besoin
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: block !important;
+  }
+
+  .text .toggle-form {
+    display: inline-block !important; // Force l'affichage sur mobile
+    margin-top: 30px;
+    padding: 15px 40px;
+    background: var(--green);
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ================= MODALE MOBILE ================= */
+.form-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-panel {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    border-radius: 20px;
+    padding: 40px 20px 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    animation: scaleIn 0.3s ease-out;
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2.2rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #333;
+    }
+  }
+}
+
+.form-mob {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  div {
+    display: flex;
+    flex-direction: column;
+    label {
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+      text-align: left;
+    }
+    input,
+    select {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+  }
+  span {
+    font-size: 0.85rem;
+    text-align: center;
+    color: #555;
+    margin: 5px 0;
+    line-height: 1.4;
+  }
+  button[type="submit"] {
+    padding: 16px;
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

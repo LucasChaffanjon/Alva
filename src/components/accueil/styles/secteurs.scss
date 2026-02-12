@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@400;500;600&display=swap");
+
+#satisfaction {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  color: #1a1a1a;
+  border-top: 1px solid var(--green);
+  padding-top: 3rem;
+  h1 {
+    font-family: "Inria Serif", serif;
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--h);
+  }
+
+  p {
+    margin: 0 5%;
+    color: #555;
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+}
+.satisfaction-cont {
+  margin: 40px 0 40px 0;
+  .villes-cont {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+
+    .ville-card {
+      position: relative;
+      width: 360px;
+      height: 260px;
+      border-radius: 20px;
+      overflow: hidden;
+      background-position: center;
+      background-size: cover;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      transition: 0.2s;
+
+      &:hover {
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+
+        &::after {
+          opacity: 0.2;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 40%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        transition: opacity 0.3s ease;
+        border-radius: 20px;
+      }
+
+      .flex-infos {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 2;
+
+        .ping-cont {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.9);
+          padding: 4px 6px;
+          border-radius: 50%;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+          .ping {
+            height: 18px;
+            width: 18px;
+          }
+        }
+
+        .name-cont {
+          margin-left: 8px;
+          background: rgba(255, 255, 255, 0.9);
+          color: var(--green);
+          font-weight: 600;
+          padding: 4px 10px;
+          border-radius: 12px;
+          font-size: 0.95rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    #ville-card-Besançon {
+      background-image: url("../../../assets/besancon.svg");
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+
+    #ville-card-Villeurbanne {
+      background-image: url("../../../assets/villeurbanne.svg");
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    margin: 4rem 5%;
+    .villes-cont {
+      flex-direction: column;
+      align-items: center;
+
+      .ville-card {
+        width: 90%;
+        max-width: 400px;
+      }
+    }
+  }
+}
+
+/* Animation */
+.satisfaction-cont {
+  .villes-cont {
+    justify-content: center;
+    transition: justify-content 1s ease-out;
+
+    .ville-card {
+      opacity: 0;
+      transition: all 0.4s ease-out;
+    }
+
+    .ville-card:nth-child(1) {
+      transform: translateY(150px) rotate(6deg);
+    }
+
+    .ville-card:nth-child(2) {
+      transform: translateY(150px) rotate(-6deg);
+    }
+
+    &.visible {
+      justify-content: center; // elles se rapprochent un peu au centre
+      gap: 4rem;
+
+      .ville-card {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+        transition-delay: 0.2s;
+      }
+    }
+  }
+}

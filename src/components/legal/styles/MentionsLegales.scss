@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@400;500;600;700&display=swap");
+
+#mentions-legales {
+  margin-top: 130px;
+  font-family: "Inter", sans-serif;
+  color: #1a1a1a;
+  background: #f6f7f9;
+
+  /* --------- HERO IMAGE --------- */
+  .mentions-hero {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); // image plein écran comme services/blog
+
+    .bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(65%);
+      transform: scale(1.02);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+
+      h1 {
+        font-family: "Inria Serif", serif;
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+    }
+  }
+
+  /* --------- CONTENU --------- */
+  .mentions-container {
+    max-width: 900px;
+    margin: 3rem auto 4rem;
+    padding: 2.5rem 2rem 3rem;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+
+    section {
+      &:not(:last-child) {
+        margin-bottom: 1.8rem;
+        border-bottom: 1px solid #eef0f2;
+        padding-bottom: 1.4rem;
+      }
+
+      h2 {
+        font-family: "Inria Serif", serif;
+        font-size: 1.4rem;
+        color: var(--h);
+        margin-bottom: 0.6rem;
+      }
+
+      p {
+        font-size: 0.98rem;
+        line-height: 1.7;
+        color: #444;
+      }
+    }
+  }
+
+  /* --------- RESPONSIVE --------- */
+  @media (max-width: 768px) {
+    .mentions-hero {
+      height: 260px;
+
+      .overlay h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    .mentions-container {
+      margin: 2rem auto 3rem;
+      padding: 2rem 1.4rem;
+    }
+  }
+}

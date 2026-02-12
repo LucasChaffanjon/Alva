@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bitter:ital,wght@0,100..900;1,100..900&family=Caprasimo&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700");
+
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white; // Couleur de base identique au header
+  height: 130px;
+  transition: 0.3s;
+
+  .logo {
+    width: 10%;
+    img {
+      height: 170px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    img:hover {
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+  }
+
+  .nav-desktop {
+    font-family: "Cormorant Garamond", serif;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 40px;
+    li {
+      font-weight: bolder;
+      font-size: 1.2rem;
+      cursor: pointer;
+      &.dropdown::after {
+        content: "▾";
+        margin-left: 6px;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        li {
+          font-size: 1rem;
+          padding: 10px 15px;
+          text-align: left;
+        }
+      }
+      &.dropdown:hover .dropdown-content {
+        display: block;
+      }
+    }
+  }
+
+  .contact {
+    margin-right: 20px;
+    background: var(--green);
+    color: whitesmoke;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .burger,
+  .nav-mobile,
+  .nav-overlay {
+    display: none;
+  }
+}
+
+.top.scrolled {
+  border-radius: 75px;
+  width: 98%;
+  height: 70px;
+  margin: 5px 1%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  img {
+    height: 100px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .top {
+    height: 80px;
+    .logo img {
+      height: 90px;
+    }
+    .nav-desktop,
+    .contact {
+      display: none;
+    }
+
+    .burger {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      span {
+        display: block;
+        height: 2px;
+        width: 26px;
+        background: #111;
+        transition: 0.3s;
+      }
+      &.open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      &.open span:nth-child(2) {
+        opacity: 0;
+      }
+      &.open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+
+    .nav-mobile {
+      width: 250px; // Largeur fixe moins imposante
+      display: block;
+      position: fixed;
+      top: 80px;
+      right: 0;
+      background: white; // Exactement la même couleur que le header
+      transform: translateX(100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 20;
+      padding: 20px 0;
+      border-bottom-left-radius: 20px;
+      box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.05);
+
+      &.open {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        li {
+          font-family: "Cormorant Garamond", serif;
+          font-weight: 700;
+          font-size: 1.15rem;
+          padding: 12px 0;
+          width: 100%;
+          text-align: center;
+        }
+        .separator {
+          height: 1px;
+          width: 70%;
+          background: var(--green);
+          opacity: 0.3;
+        }
+        .mobile-contact {
+          width: 100%;
+          padding-top: 15px;
+          button {
+            background: var(--green);
+            color: white;
+            border: none;
+            border-radius: 999px;
+            padding: 10px 20px;
+            font-weight: 700;
+            width: 85%;
+            font-family: inherit;
+          }
+        }
+      }
+      .mobile-dropdown {
+        .mobile-dropdown-title {
+          display: flex;
+          justify-content: center;
+          gap: 5px;
+        }
+        .mobile-dropdown-content {
+          display: none;
+          background: #fafafa;
+          li {
+            font-size: 1rem;
+          }
+        }
+        &.open .mobile-dropdown-content {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+    .nav-overlay.open {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: 15;
+    }
+  }
+}

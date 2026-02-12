@@ -1,0 +1,23 @@
+/* index.css ou App.css */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* ON SUPPRIME TOUT OVERFLOW ICI */
+}
+
+#root {
+  width: 100%;
+  position: relative;
+}
+
+:root {
+  --green: #81a38c;
+  --green-bg: #81a38c17;
+  --h: black;
+}
+
+* {
+  box-sizing: border-box;
+}
