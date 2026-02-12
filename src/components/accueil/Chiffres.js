@@ -35,7 +35,6 @@ const Chiffres = () => {
             val < targets[i] ? Math.min(val + 1, targets[i]) : val
           );
 
-          // Si toutes les valeurs ont atteint leurs cibles, on fixe l'état final
           if (newValues.every((val, i) => val === targets[i])) {
             setHasAnimated(true);
             clearInterval(interval);
@@ -46,7 +45,7 @@ const Chiffres = () => {
     }
 
     return () => clearInterval(interval);
-  }, [visible, hasAnimated]);
+  }, [visible, hasAnimated, targets]);
 
   return (
     <div className="chiffres-cont" ref={chiffresRef}>
