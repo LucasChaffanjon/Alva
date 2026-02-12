@@ -35,7 +35,7 @@
   gap: 30px;
 }
 
-/* ================= FORMULAIRE DESKTOP ================= */
+/* ================= FORMULAIRE DESKTOP (Inchangé) ================= */
 .formulaire {
   background: rgba(249, 249, 249, 0.95);
   display: flex;
@@ -83,7 +83,7 @@
     transition: 0.3s;
     &:hover {
       background: #5a7d65;
-    } // Ajuste selon ta var --green
+    }
   }
 
   .success-message {
@@ -98,7 +98,7 @@
   }
 }
 
-/* ================= SECTION TEXTE ================= */
+/* ================= SECTION TEXTE (Inchangé) ================= */
 .text {
   flex: 1;
   color: whitesmoke;
@@ -143,7 +143,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center; // Centre les enfants (H1, P et Bouton)
+    align-items: center;
 
     h1 {
       font-size: 2.2rem;
@@ -157,7 +157,6 @@
     max-width: 500px;
   }
 
-  // Masquage du formulaire desktop et du bouton selon le besoin
   .desktop-only {
     display: none !important;
   }
@@ -166,7 +165,7 @@
   }
 
   .text .toggle-form {
-    display: inline-block !important; // Force l'affichage sur mobile
+    display: inline-block !important;
     margin-top: 30px;
     padding: 15px 40px;
     background: var(--green);
@@ -180,44 +179,60 @@
   }
 }
 
-/* ================= MODALE MOBILE ================= */
+/* ================= MODALE MOBILE (Mise à jour) ================= */
 .form-modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
+  align-items: flex-end; // Panneau qui part du bas
 
   .modal-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px); // Flou moderne
   }
 
   .modal-panel {
     position: relative;
     width: 100%;
-    max-width: 420px;
     background: white;
-    border-radius: 20px;
-    padding: 40px 20px 20px;
+    border-radius: 25px 25px 0 0; // Arrondi haut seulement
+    padding: 35px 20px 30px;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    animation: scaleIn 0.3s ease-out;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+    // Barre visuelle de "drag" en haut
+    &::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 45px;
+      height: 5px;
+      background: #e0e0e0;
+      border-radius: 10px;
+    }
 
     .close-btn {
       position: absolute;
-      top: 10px;
+      top: 15px;
       right: 15px;
-      font-size: 2.2rem;
+      font-size: 2rem;
       border: none;
-      background: none;
-      cursor: pointer;
+      background: #f0f0f0;
       color: #333;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
     }
   }
 }
@@ -225,49 +240,68 @@
 .form-mob {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+
   div {
     display: flex;
     flex-direction: column;
     label {
-      font-size: 0.85rem;
-      font-weight: bold;
-      margin-bottom: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--green); // Utilisation de ta variable de marque
       text-align: left;
     }
     input,
     select {
-      padding: 12px;
+      padding: 14px;
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-radius: 12px;
       font-size: 1rem;
+      background: #fafafa;
+      appearance: none; // Pour iOS
+      &:focus {
+        outline: none;
+        border-color: var(--green);
+        background: white;
+      }
     }
   }
+
   span {
     font-size: 0.85rem;
     text-align: center;
-    color: #555;
+    color: #666;
     margin: 5px 0;
-    line-height: 1.4;
+    line-height: 1.5;
   }
+
   button[type="submit"] {
-    padding: 16px;
+    margin-top: 10px;
+    padding: 18px;
     background: var(--green);
     color: white;
     border: none;
-    border-radius: 10px;
-    font-weight: bold;
+    border-radius: 14px;
+    font-weight: 700;
     font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }
 
-@keyframes scaleIn {
+/* Animation de glissement */
+@keyframes slideUp {
   from {
-    transform: scale(0.9);
-    opacity: 0;
+    transform: translateY(100%);
   }
   to {
-    transform: scale(1);
-    opacity: 1;
+    transform: translateY(0);
   }
 }
