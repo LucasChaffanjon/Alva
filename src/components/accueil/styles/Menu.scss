@@ -1,7 +1,7 @@
 /* ================= GLOBAL ================= */
 #menu {
   position: relative;
-  overflow: hidden; // Élimine tout slide résiduel
+  overflow: hidden;
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -11,7 +11,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    margin-top: 130px; // Aligné sur le header desktop
+    margin-top: 130px;
     background-image: url("../../../assets/menuimg.svg");
     background-size: cover;
     background-position: center;
@@ -29,13 +29,13 @@
   margin: 0 auto;
   padding: 100px 20px 50px;
   display: flex;
-  flex-direction: row-reverse; // Formulaire à droite, Texte à gauche
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
 }
 
-/* ================= FORMULAIRE DESKTOP (Inchangé) ================= */
+/* ================= FORMULAIRE DESKTOP ================= */
 .formulaire {
   background: rgba(249, 249, 249, 0.95);
   display: flex;
@@ -98,19 +98,17 @@
   }
 }
 
-/* ================= SECTION TEXTE (Inchangé) ================= */
+/* ================= SECTION TEXTE ================= */
 .text {
   flex: 1;
   color: whitesmoke;
   text-align: left;
   max-width: 650px;
-
   h1 {
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 25px;
   }
-
   p {
     font-size: 1.8rem;
     font-style: italic;
@@ -127,24 +125,21 @@
   display: none !important;
 }
 
-/* ================= RESPONSIVE TABLETTE / MOBILE ================= */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
   #menu::before {
     margin-top: 80px;
   }
-
   .menu {
-    flex-direction: column; // Empilement vertical
+    flex-direction: column;
     text-align: center;
     padding-top: 120px;
   }
-
   .text {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-
     h1 {
       font-size: 2.2rem;
     }
@@ -152,18 +147,12 @@
       font-size: 1.4rem;
     }
   }
-
-  .formulaire {
-    max-width: 500px;
-  }
-
   .desktop-only {
     display: none !important;
   }
   .mobile-only {
     display: block !important;
   }
-
   .text .toggle-form {
     display: inline-block !important;
     margin-top: 30px;
@@ -173,39 +162,37 @@
     border-radius: 50px;
     font-weight: bold;
     border: none;
-    cursor: pointer;
     font-size: 1.1rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 }
 
-/* ================= MODALE MOBILE (Mise à jour) ================= */
+/* ================= MODALE MOBILE PREMIUM ================= */
 .form-modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
   display: flex;
-  align-items: flex-end; // Panneau qui part du bas
+  align-items: flex-end;
 
   .modal-backdrop {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(6px); // Flou moderne
+    backdrop-filter: blur(6px);
   }
 
   .modal-panel {
     position: relative;
     width: 100%;
     background: white;
-    border-radius: 25px 25px 0 0; // Arrondi haut seulement
+    border-radius: 25px 25px 0 0;
     padding: 35px 20px 30px;
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
     animation: slideUp 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 
-    // Barre visuelle de "drag" en haut
     &::before {
       content: "";
       position: absolute;
@@ -232,7 +219,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
     }
   }
 }
@@ -250,8 +236,7 @@
       font-weight: 700;
       margin-bottom: 6px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--green); // Utilisation de ta variable de marque
+      color: var(--green);
       text-align: left;
     }
     input,
@@ -261,12 +246,26 @@
       border-radius: 12px;
       font-size: 1rem;
       background: #fafafa;
-      appearance: none; // Pour iOS
+      color: #333; // Force le texte en noir
+
+      /* Correctif iOS Bleu */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
       &:focus {
         outline: none;
         border-color: var(--green);
         background: white;
       }
+    }
+
+    /* Ajout d'une flèche personnalisée pour les select car appearance:none l'enlève */
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 14px;
     }
   }
 
@@ -274,7 +273,6 @@
     font-size: 0.85rem;
     text-align: center;
     color: #666;
-    margin: 5px 0;
     line-height: 1.5;
   }
 
@@ -287,16 +285,9 @@
     border-radius: 14px;
     font-weight: 700;
     font-size: 1.1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s;
-
-    &:active {
-      transform: scale(0.98);
-    }
   }
 }
 
-/* Animation de glissement */
 @keyframes slideUp {
   from {
     transform: translateY(100%);

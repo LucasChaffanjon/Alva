@@ -7,7 +7,7 @@ $timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 #avantages {
   font-family: "Inria Serif", serif;
   padding: 80px 10%;
-  overflow-x: hidden; // Sécurité pour les animations
+  overflow-x: hidden;
 
   .title {
     padding-top: 40px;
@@ -29,10 +29,9 @@ $timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     padding: 0;
     margin: 0 auto;
     display: grid;
-    // On crée 3 colonnes égales parfaitement centrées
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    max-width: 1200px; // Limite la largeur pour un meilleur aspect visuel
+    max-width: 1200px;
 
     .bloc {
       position: relative;
@@ -43,13 +42,17 @@ $timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       padding: 3rem 2rem;
       text-align: left;
-      transition: transform 0.3s ease,
-        opacity $transition-speed $timing-function,
-        transform $transition-speed $timing-function;
+      // On garde les transitions pour l'apparition initiale (opacity/transform)
+      transition: opacity $transition-speed $timing-function,
+        transform $transition-speed $timing-function, box-shadow 0.3s ease;
       opacity: 0;
 
-      &:hover {
-        transform: translateY(-10px) !important;
+      // --- HOVER UNIQUEMENT SUR DESKTOP ---
+      @media (hover: hover) {
+        &:hover {
+          transform: translateY(-10px) !important;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
       }
 
       .icon {
@@ -81,7 +84,7 @@ $timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
     }
 
-    // --- Animations Desktop ---
+    // --- Animations d'entrée (Desktop) ---
     .bloc:nth-child(1) {
       transform: translateX(-80px);
     }
@@ -123,9 +126,11 @@ $timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
       font-weight: bold;
       transition: 0.3s;
 
-      &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      @media (hover: hover) {
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
       }
     }
 
@@ -133,9 +138,11 @@ $timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
       background: transparent;
       color: var(--h);
       border: 2px solid var(--green);
-      &:hover {
-        background: var(--green);
-        color: white;
+      @media (hover: hover) {
+        &:hover {
+          background: var(--green);
+          color: white;
+        }
       }
     }
   }
@@ -144,11 +151,9 @@ $timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1100px) {
-  #avantages {
-    .avantages-list {
-      grid-template-columns: repeat(2, 1fr); // 2 colonnes sur tablette
-      max-width: 800px;
-    }
+  #avantages .avantages-list {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
   }
 }
 
@@ -162,19 +167,28 @@ $timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .avantages-list {
-      grid-template-columns: 1fr; // 1 seule colonne sur mobile
-      max-width: 450px; // Centre la colonne sur l'écran
+      grid-template-columns: 1fr;
+      max-width: 450px;
       gap: 20px;
 
       .bloc {
         width: 100%;
+        // On désactive explicitement tout transform forcé par erreur sur mobile
+        &:hover {
+          transform: none !important;
+        }
 
-        // Reset animations pour mobile
+        // Reset positions d'entrée pour mobile
         &:nth-child(1),
         &:nth-child(2),
         &:nth-child(3) {
           transform: translateY(30px);
         }
+      }
+
+      // Quand visible sur mobile, on revient à zéro
+      &.visible .bloc {
+        transform: translateY(0) !important;
       }
     }
 

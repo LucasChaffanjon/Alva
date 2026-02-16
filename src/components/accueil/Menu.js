@@ -39,7 +39,7 @@ const Menu = () => {
     };
     if (showForm) {
       window.addEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "hidden"; // Empêche le scroll quand modale ouverte
+      document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
@@ -49,10 +49,18 @@ const Menu = () => {
     };
   }, [showForm]);
 
+  // Fonction utilitaire pour générer les options de 1 à 10
+  const renderNumberOptions = () => {
+    return [...Array(10)].map((_, i) => (
+      <option key={i + 1} value={i + 1}>
+        {i + 1}
+      </option>
+    ));
+  };
+
   return (
     <div id="menu">
       <div className="menu">
-        {/* --- Desktop : le formulaire reste dans la page --- */}
         <form className="formulaire desktop-only" onSubmit={handleSubmit}>
           <div>
             <label>Adresse du bien</label>
@@ -64,8 +72,10 @@ const Menu = () => {
           </div>
           <div>
             <label>Type de bien</label>
-            <select name="entry.410455139" required>
-              <option value="">-- Sélectionnez --</option>
+            <select name="entry.410455139" required defaultValue="">
+              <option value="" disabled hidden>
+                -- Sélectionnez --
+              </option>
               <option>Studio</option>
               <option>T2</option>
               <option>T3</option>
@@ -76,11 +86,21 @@ const Menu = () => {
           </div>
           <div>
             <label>Nombre de chambres</label>
-            <input type="number" name="entry.23772495" min="0" required />
+            <select name="entry.23772495" required defaultValue="">
+              <option value="" disabled hidden>
+                -- Sélectionnez --
+              </option>
+              {renderNumberOptions()}
+            </select>
           </div>
           <div>
             <label>Nombre de salles de bains</label>
-            <input type="number" name="entry.298792479" min="0" required />
+            <select name="entry.298792479" required defaultValue="">
+              <option value="" disabled hidden>
+                -- Sélectionnez --
+              </option>
+              {renderNumberOptions()}
+            </select>
           </div>
           <div>
             <label>Adresse mail</label>
@@ -104,9 +124,7 @@ const Menu = () => {
             </p>
           )}
           {status === "error" && (
-            <p className="error-message">
-              Oups, une erreur est survenue… Réessaye plus tard.
-            </p>
+            <p className="error-message">Oups, une erreur est survenue…</p>
           )}
         </form>
 
@@ -118,7 +136,6 @@ const Menu = () => {
             Confiez-nous votre bien, nous maximisons sa rentabilité en toute
             sérénité.
           </p>
-
           <button
             className="toggle-form mobile-only"
             onClick={() => setShowForm(true)}
@@ -128,11 +145,10 @@ const Menu = () => {
         </div>
       </div>
 
-      {/* --- Mobile : MODALE POPUP --- */}
+      {/* --- Mobile : MODALE --- */}
       {showForm && (
         <div className="form-modal mobile-only">
           <div className="modal-backdrop" onClick={() => setShowForm(false)} />
-
           <div className="modal-panel" role="dialog" aria-modal="true">
             <button className="close-btn" onClick={() => setShowForm(false)}>
               ×
@@ -149,8 +165,10 @@ const Menu = () => {
               </div>
               <div>
                 <label>Type de bien</label>
-                <select name="entry.410455139" required>
-                  <option value="">-- Sélectionnez --</option>
+                <select name="entry.410455139" required defaultValue="">
+                  <option value="" disabled hidden>
+                    -- Sélectionnez --
+                  </option>
                   <option>Studio</option>
                   <option>T2</option>
                   <option>T3</option>
@@ -161,11 +179,21 @@ const Menu = () => {
               </div>
               <div>
                 <label>Nombre de chambres</label>
-                <input type="number" name="entry.23772495" min="0" required />
+                <select name="entry.23772495" required defaultValue="">
+                  <option value="" disabled hidden>
+                    -- Sélectionnez --
+                  </option>
+                  {renderNumberOptions()}
+                </select>
               </div>
               <div>
                 <label>Nombre de salles de bains</label>
-                <input type="number" name="entry.298792479" min="0" required />
+                <select name="entry.298792479" required defaultValue="">
+                  <option value="" disabled hidden>
+                    -- Sélectionnez --
+                  </option>
+                  {renderNumberOptions()}
+                </select>
               </div>
               <div>
                 <label>Adresse mail</label>
@@ -187,11 +215,6 @@ const Menu = () => {
               {status === "success" && (
                 <p className="success-message">
                   Merci, votre formulaire a bien été envoyé !
-                </p>
-              )}
-              {status === "error" && (
-                <p className="error-message">
-                  Oups, une erreur est survenue… Réessaye plus tard.
                 </p>
               )}
             </form>

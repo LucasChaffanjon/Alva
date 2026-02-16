@@ -150,12 +150,12 @@
     }
 
     &.visible {
-      justify-content: center; // elles se rapprochent un peu au centre
+      justify-content: center;
       gap: 4rem;
 
       .ville-card {
         opacity: 1;
-        transform: translateX(0) rotate(0deg);
+        transform: translate(0, 0) rotate(0deg) !important;
         transition-delay: 0.2s;
       }
     }

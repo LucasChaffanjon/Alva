@@ -10,7 +10,12 @@ const Satisfaction = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          if (listRef.current) observer.unobserve(listRef.current);
+        }
+      },
       { threshold: 0.4 }
     );
     if (listRef.current) observer.observe(listRef.current);

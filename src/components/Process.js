@@ -106,7 +106,13 @@ const Process = () => {
   const handleClick = (cta) => {
     if (cta === "Remplir notre formulaire") {
       const section = document.getElementById("menu");
-      section?.scrollIntoView({ behavior: "smooth" });
+      if (section) {
+        // On ajoute un petit offset pour ne pas coller le haut de l'écran
+        const yOffset = -80;
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
     } else {
       window.open(CALENDLY_URL, "_blank");
     }

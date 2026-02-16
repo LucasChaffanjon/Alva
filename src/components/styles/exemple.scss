@@ -94,20 +94,12 @@
 
         li {
           position: relative;
-          padding-left: 1.25rem;
+          padding-left: 0;
           margin-bottom: 0.5rem;
           color: #333;
 
           strong {
             white-space: nowrap; // Empêche de couper entre le chiffre et le symbole €
-          }
-
-          &::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-weight: bold;
           }
         }
       }
