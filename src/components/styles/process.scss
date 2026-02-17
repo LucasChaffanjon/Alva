@@ -1,4 +1,4 @@
-.process-cont {
+#process-cont {
   padding: 80px 10%;
   background: #fdfdfd;
   overflow-x: clip;
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0; // Réduit pour que l'effet d'empilement soit plus compact
+    gap: 0;
     padding-bottom: 0;
 
     .step-card {
@@ -35,9 +35,8 @@
       border-radius: 30px;
       border-left: 10px solid var(--green);
       z-index: var(--index);
-      opacity: 0;
+      opacity: 1;
       transform: translateY(50px);
-      transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.8s;
       padding: 15px;
       &.visible {
         opacity: 1;
@@ -95,7 +94,7 @@
 
 /* --- RESPONSIVE MOBILE (CORRECTIF HAUTEUR) --- */
 @media (max-width: 768px) {
-  .process-cont {
+  #process-cont {
     padding: 60px 15px;
 
     .steps-container {

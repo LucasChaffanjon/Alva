@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/services.scss";
 
 import headerImg from "../../assets/servicesbg.svg";
@@ -21,10 +22,21 @@ const AccordionItem = ({ title, content, isOpen, onClick }) => {
 };
 
 const Services = () => {
+  const navigate = useNavigate();
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const handleEstimateClick = () => {
+    const isMobile = window.innerWidth <= 1024;
+    navigate("/", { state: { openForm: isMobile } });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (!isMobile) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -163,6 +175,11 @@ const Services = () => {
               onClick={() => toggle(8)}
             />
           </div>
+        </div>
+        <div className="cta-final-container">
+          <button className="cta-estimate" onClick={handleEstimateClick}>
+            Estimer mon bien gratuitement
+          </button>
         </div>
       </div>
     </section>

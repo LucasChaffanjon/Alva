@@ -37,12 +37,15 @@ const Menu = () => {
     const onKeyDown = (e) => {
       if (e.key === "Escape") setShowForm(false);
     };
-    if (showForm) {
+    const isMobile = window.innerWidth <= 1024;
+
+    if (showForm && isMobile) {
       window.addEventListener("keydown", onKeyDown);
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
+
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "auto";

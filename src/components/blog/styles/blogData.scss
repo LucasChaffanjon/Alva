@@ -1,41 +1,105 @@
 .related-articles {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 12px;
-  border-left: 5px solid var(--green);
-  transition: 0.2s;
+  margin: 50px 0;
+  padding: 30px;
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f1f5f3
+  ); // Dégradé très léger vers le vert
+  border-radius: 20px;
+  border: 1px solid rgba(var(--green-rgb), 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+
+  // Petit rappel de couleur discret sur le côté
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--green);
+  }
 
   h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #333;
+    font-family: "Inria Serif", serif;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--h);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    // Ajoute une petite puce stylisée avant le titre
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.05);
+      margin-left: 10px;
+    }
   }
 
   ul {
     list-style: none;
     padding: 0;
+    display: grid;
+    gap: 12px;
 
     li {
-      margin-bottom: 10px;
-
       a {
-        color: var(--green);
+        color: #444;
         text-decoration: none;
         font-weight: 500;
+        font-size: 1.05rem;
         display: flex;
         align-items: center;
-        transition: 0.2s;
+        padding: 12px 15px;
+        background: white;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 
-        &:before {
-          content: "→";
-          margin-right: 10px;
+        // L'icône flèche
+        &::before {
+          content: "\2192"; // Flèche Unicode fine
+          margin-right: 15px;
+          color: var(--green);
+          font-size: 1.2rem;
+          transition: transform 0.3s ease;
         }
 
         &:hover {
-          margin-left: 10px;
+          color: var(--green);
+          border-color: rgba(var(--green-rgb), 0.2);
+          transform: translateX(8px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+          &::before {
+            transform: translateX(3px);
+          }
         }
       }
+    }
+  }
+}
+
+// Adaptations mobiles
+@media (max-width: 600px) {
+  .related-articles {
+    padding: 20px;
+    margin: 30px 0;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    ul li a {
+      font-size: 0.95rem;
+      padding: 10px;
     }
   }
 }

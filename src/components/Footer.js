@@ -44,8 +44,15 @@ const Footer = () => {
             </li>
             <li
               onClick={() => {
-                navigate("/", { state: { openForm: true } });
-                window.scrollTo(0, 0);
+                const isMobile = window.innerWidth <= 1024;
+                navigate("/", { state: { openForm: isMobile } });
+                document
+                  .getElementById("menu")
+                  ?.scrollIntoView({ behavior: "smooth" });
+
+                if (!isMobile) {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
               }}
             >
               Calculer vos revenus
@@ -57,15 +64,6 @@ const Footer = () => {
         <div className="footer-col">
           <h3>Entreprise</h3>
           <ul>
-            <li
-              onClick={() => {
-                const section = document.getElementById("avantages");
-                section?.scrollIntoView({ behavior: "smooth" });
-                navigate("/");
-              }}
-            >
-              Qui sommes-nous ?
-            </li>
             <li
               onClick={() => {
                 const section = document.getElementById("satisfaction");

@@ -5,8 +5,7 @@ import blogData from "./blogData";
 
 import headerImg from "../../assets/blog.svg";
 
-const articles = blogData;
-
+// MODIFICATION ICI : On ne définit plus "articles" ici car on a besoin de "navigate" qui est dans le composant
 const CATEGORIES = [
   "Fiscalité",
   "Décoration",
@@ -17,6 +16,10 @@ const CATEGORIES = [
 
 const Blog = () => {
   const navigate = useNavigate();
+
+  // MODIFICATION ICI : On génère le tableau d'articles en passant "navigate" à la fonction blogData
+  const articles = useMemo(() => blogData(navigate), [navigate]);
+
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState(null); // string ou null
   const [page, setPage] = useState(0); // pagination pour le slider (2 articles)
@@ -27,6 +30,7 @@ const Blog = () => {
   const filteredArticles = useMemo(() => {
     const q = search.trim().toLowerCase();
 
+    // On utilise les articles générés plus haut
     let list = articles;
 
     // filtre catégorie
@@ -44,13 +48,15 @@ const Blog = () => {
     }
 
     return list;
-  }, [search, activeCategory]);
+  }, [search, activeCategory, articles]); // Ajout de "articles" en dépendance
 
   const totalPages = Math.max(1, Math.ceil(filteredArticles.length / pageSize));
 
   // s'assurer que la page est dans les bornes si le filtre change
   const currentPage = Math.min(page, totalPages - 1);
   const startIndex = currentPage * pageSize;
+
+  // ICI : filteredArticles est maintenant un vrai tableau, slice() fonctionnera !
   const visibleArticles = filteredArticles.slice(
     startIndex,
     startIndex + pageSize
@@ -88,7 +94,6 @@ const Blog = () => {
           <h1>Blog</h1>
           <h2>Conseils Airbnb à Besançon &amp; Villeurbanne</h2>
 
-          {/* texte desktop (dans la bannière) */}
           <p className="blog-intro">
             Découvrez nos conseils pour optimiser vos locations courtes durées :
             réglementation, fiscalité, rentabilité, quartiers, stratégies de
@@ -98,7 +103,6 @@ const Blog = () => {
         </div>
       </div>
 
-      {/* texte mobile (sous la bannière) */}
       <div className="blog-intro-mobile">
         Découvrez nos conseils pour optimiser vos locations courtes durées :
         réglementation, fiscalité, rentabilité, quartiers, stratégies de prix et
@@ -153,7 +157,6 @@ const Blog = () => {
         </aside>
 
         <div className="content">
-          {/* Liste des cartes (2 visibles) */}
           <div className="articles-grid">
             {visibleArticles.length === 0 ? (
               <p className="no-results">
@@ -184,7 +187,6 @@ const Blog = () => {
             )}
           </div>
 
-          {/* Contrôles slider */}
           {filteredArticles.length > pageSize && (
             <div className="slider-controls">
               <button

@@ -268,3 +268,46 @@
     color: var(--green);
   }
 }
+
+.cta-final-container {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0 40px;
+  padding-bottom: 20px;
+
+  .cta-estimate {
+    background: var(--green);
+    color: white;
+    padding: 18px 45px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-family: "Inria Serif", serif;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(var(--green-rgb), 0.3);
+      filter: brightness(1.05);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Adaptation mobile
+@media (max-width: 768px) {
+  .cta-final-container {
+    margin: 40px 0;
+    .cta-estimate {
+      width: 100%; // Pleine largeur sur mobile pour cliquer facilement
+      font-size: 1.1rem;
+      padding: 16px 20px;
+    }
+  }
+}

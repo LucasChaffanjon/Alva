@@ -115,7 +115,6 @@
     }
   }
 
-  /* Responsive */
   @media (max-width: 900px) {
     margin: 4rem 5%;
     .villes-cont {
@@ -130,11 +129,10 @@
   }
 }
 
-/* Animation */
 .satisfaction-cont {
   .villes-cont {
     justify-content: center;
-    transition: justify-content 1s ease-out;
+    transition: justify-content 0.2s ease-out;
 
     .ville-card {
       opacity: 0;

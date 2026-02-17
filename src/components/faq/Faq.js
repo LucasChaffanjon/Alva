@@ -15,10 +15,16 @@ const Faq = () => {
   const navigate = useNavigate();
   const [openIndexBySection, setOpenIndexBySection] = useState({});
 
-  // Fonction pour gérer le clic sur le bouton spécifique
   const handleFaqBtnClick = () => {
-    navigate("/service");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/");
+    setTimeout(() => {
+      const section = document.getElementById("process-cont");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 100);
   };
 
   const sections = [

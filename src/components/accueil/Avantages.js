@@ -77,7 +77,8 @@ const Avantages = () => {
         <button
           className="estimation"
           onClick={() => {
-            navigate("/", { state: { openForm: true } });
+            const isMobile = window.innerWidth <= 1024;
+            navigate("/", { state: { openForm: isMobile } });
             const section = document.getElementById("menu");
             section?.scrollIntoView({ behavior: "smooth" });
           }}

@@ -8,7 +8,11 @@ const BlogArticle = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const article = blogData.find((a) => String(a.id) === String(id));
+  // MODIFICATION : On appelle blogData(navigate) pour obtenir le tableau d'articles
+  const articles = blogData(navigate);
+
+  // On fait le .find() sur le tableau "articles" récupéré
+  const article = articles.find((a) => String(a.id) === String(id));
 
   if (!article) {
     return (
@@ -42,7 +46,7 @@ const BlogArticle = () => {
             margin: "1rem 0",
           }}
         />
-        <div>{article.content}</div>
+        <div className="article-body-content">{article.content}</div>
       </main>
       <Footer />
     </>

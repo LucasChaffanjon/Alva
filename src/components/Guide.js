@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/guide.scss";
 import guide from "../assets/guide.svg";
-import Guidea from "../assets/AlvaGuidePdf.pdf";
+import GuidePopup from "./GuidePopup";
 
 const Guide = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   return (
     <div className="guide-cont">
       <h1>Guide location courte durée</h1>
@@ -18,13 +19,13 @@ const Guide = () => {
             vos invités. Cliquez sur le bouton ci-dessous pour le télécharger et
             améliorer vos locations dès aujourd'hui !
           </p>
-          <a
-            href={Guidea}
-            download="Guide-Location-Airbnb.pdf"
-            className="guide"
-          >
+          <button className="btn-download" onClick={() => setIsPopupOpen(true)}>
             Télécharger le guide
-          </a>
+          </button>
+          <GuidePopup
+            isOpen={isPopupOpen}
+            onClose={() => setIsPopupOpen(false)}
+          />
         </div>
       </div>
     </div>

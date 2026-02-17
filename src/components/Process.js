@@ -119,7 +119,7 @@ const Process = () => {
   };
 
   return (
-    <div className="process-cont">
+    <div id="process-cont">
       <h1 className="title">
         Comment fonctionne notre conciergerie Airbnb ? <br />
         <span>Notre processus en 4 étapes</span>
