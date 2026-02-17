@@ -156,6 +156,17 @@
           box-shadow: 0 0 0 2px rgba(129, 163, 140, 0.2);
         }
       }
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        &:focus {
+          outline: none;
+          border-color: var(--green);
+          background: white;
+        }
+      }
     }
 
     .cta-btn {

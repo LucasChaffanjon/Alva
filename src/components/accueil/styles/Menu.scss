@@ -98,7 +98,6 @@
   }
 }
 
-/* ================= SECTION TEXTE ================= */
 .text {
   flex: 1;
   color: whitesmoke;
@@ -117,7 +116,6 @@
   }
 }
 
-/* ================= HELPERS DISPLAY ================= */
 .desktop-only {
   display: flex !important;
 }
@@ -125,7 +123,6 @@
   display: none !important;
 }
 
-/* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
   #menu::before {
     margin-top: 80px;
@@ -167,7 +164,6 @@
   }
 }
 
-/* ================= MODALE MOBILE PREMIUM ================= */
 .form-modal {
   position: fixed;
   inset: 0;
@@ -248,7 +244,6 @@
       background: #fafafa;
       color: #333; // Force le texte en noir
 
-      /* Correctif iOS Bleu */
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
