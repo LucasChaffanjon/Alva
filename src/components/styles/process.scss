@@ -108,7 +108,7 @@
 
         .card-content {
           flex-direction: column;
-          justify-content: space-between; // Aligne le titre en haut et le bouton en bas
+          justify-content: space-between;
           height: 100%;
           gap: 1rem;
 
@@ -132,10 +132,9 @@
 
           .media-block {
             img {
-              height: 120px;
+              height: 70%;
             }
             button {
-              margin-top: auto; // Pousse le bouton vers le bas
               padding: 12px;
             }
           }
