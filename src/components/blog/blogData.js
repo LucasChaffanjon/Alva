@@ -17,8 +17,6 @@ import img41 from "../../assets/blog41.jpg";
 
 import "./styles/blogData.scss";
 
-const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
 const blogData = (navigate) => [
   {
     id: 1,
@@ -96,7 +94,7 @@ const blogData = (navigate) => [
         </strong>
 
         <h3>Les quartiers les plus rentables de Besançon</h3>
-        <img src={img11} />
+        <img src={img11} alt="" />
         <p>
           La Boucle reste le secteur le plus recherché, avec des prix par nuit
           élevés et une forte demande touristique. Battant offre un excellent
@@ -109,7 +107,7 @@ const blogData = (navigate) => [
         </p>
 
         <h3>Créer une annonce Airbnb performante</h3>
-        <img src={img12} />
+        <img src={img12} alt="" />
         <p>
           Une annonce efficace commence par des photos professionnelles, qui
           peuvent augmenter vos réservations de manière spectaculaire. Le titre
@@ -123,7 +121,7 @@ const blogData = (navigate) => [
         </p>
 
         <h3>La tarification dynamique : indispensable pour 2026</h3>
-        <img src={img13} />
+        <img src={img13} alt="" />
 
         <p>
           Besançon connaît des variations de prix importantes selon les saisons
@@ -199,10 +197,10 @@ const blogData = (navigate) => [
           reste plus souple que d’autres grandes villes françaises, certaines
           règles doivent être respectées pour louer en toute légalité.
         </p>
-        <img src={img21} />
+        <img src={img21} alt="" />
 
         <h3>Déclaration obligatoire en mairie</h3>
-        <img src={img22} />
+        <img src={img22} alt="" />
         <p>
           Toute location meublée touristique doit être déclarée à la mairie.
           Cette démarche gratuite vous permet d’obtenir un numéro
@@ -247,7 +245,7 @@ const blogData = (navigate) => [
         </p>
 
         <h3>Fiscalité : micro-BIC ou LMNP ?</h3>
-        <img src={img23} />
+        <img src={img23} alt="" />
         <p>
           Les revenus Airbnb sont imposés dans la catégorie des BIC. En 2026,
           l’abattement dépend du type de meublé (classé ou non classé) : nous
@@ -270,7 +268,7 @@ const blogData = (navigate) => [
         </strong>
 
         <h3>La CFE : un impôt à ne pas oublier</h3>
-        <img src={img24} />
+        <img src={img24} alt="" />
         <p>
           La Cotisation Foncière des Entreprises est due par tous les loueurs
           meublés, y compris en Airbnb. À Besançon, son montant varie
@@ -348,7 +346,7 @@ const blogData = (navigate) => [
           taux d’occupation et des charges. Voici une synthèse simple et
           concrète des revenus Airbnb possibles en 2026.
         </p>
-        <img src={img31} />
+        <img src={img31} alt="" />
 
         <h3>Les prix moyens par nuit</h3>
         <p>
@@ -410,7 +408,7 @@ const blogData = (navigate) => [
           plus qu’une location traditionnelle, surtout si le bien est bien situé
           et bien géré.
         </p>
-        <img src={img32} />
+        <img src={img32} alt="" />
 
         <h3>Comment augmenter ses revenus ?</h3>
         <p>
@@ -474,7 +472,7 @@ const blogData = (navigate) => [
           performance du bien. Voici un aperçu clair des zones les plus
           prometteuses.
         </p>
-        <img src={img41} />
+        <img src={img41} alt="" />
 
         <h3>La Boucle : le secteur premium</h3>
         <p>
