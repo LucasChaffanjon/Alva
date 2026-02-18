@@ -144,7 +144,7 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            navigate("/blog/1");
+            navigate("/service");
             setTimeout(
               () => window.scrollTo({ top: 0, behavior: "smooth" }),
               0
@@ -302,7 +302,7 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            navigate("/blog/1");
+            navigate("/service");
             setTimeout(
               () => window.scrollTo({ top: 0, behavior: "smooth" }),
               0
@@ -426,7 +426,7 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            navigate("/blog/5");
+            navigate("/service");
             setTimeout(
               () => window.scrollTo({ top: 0, behavior: "smooth" }),
               0
@@ -546,7 +546,7 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            navigate("/blog/1");
+            navigate("/service");
             setTimeout(
               () => window.scrollTo({ top: 0, behavior: "smooth" }),
               0
@@ -645,7 +645,7 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            navigate("/blog/1");
+            navigate("/service");
             setTimeout(
               () => window.scrollTo({ top: 0, behavior: "smooth" }),
               0
@@ -734,7 +734,7 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            navigate("/blog/1");
+            navigate("service");
             setTimeout(
               () => window.scrollTo({ top: 0, behavior: "smooth" }),
               0
