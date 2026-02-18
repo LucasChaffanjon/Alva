@@ -14,10 +14,10 @@
   transition: all 0.3s ease-in-out;
 
   .logo {
-    width: 15%; // Un peu plus large pour éviter les chevauchements
+    width: 15%;
     padding-left: 20px;
     img {
-      height: 170px;
+      height: 130px;
       cursor: pointer;
       transition: 0.3s;
       display: block;
@@ -101,38 +101,32 @@
   }
 }
 
-/* --- ÉTAT SCROLLÉ --- */
 .top.scrolled {
   height: 80px;
   background: #ffffff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-
-  // L'arrondi ne s'applique que sur Desktop
-  @media (min-width: 1051px) {
-    width: 96%;
-    margin: 10px 2%;
-    border-radius: 100px;
-  }
+  width: 96%;
+  margin: 10px 2%;
+  border-radius: 100px;
 
   .logo img {
     height: 110px;
   }
 }
 
-/* --- RESPONSIVE MOBILE --- */
-@media (max-width: 1050px) {
+@media (max-width: 1056px) {
   .top {
-    height: 80px !important; // Hauteur fixe sur mobile
+    height: 80px !important;
     background: #ffffff !important;
     width: 100% !important;
     margin: 0 !important;
-    border-radius: 0 !important; // Supprime l'arrondi du mode scrollé sur mobile
+    border-radius: 0 !important;
     padding: 0 20px;
 
     .logo {
       padding: 0;
       img {
-        height: 90px !important;
+        height: 80px !important;
       }
     }
 

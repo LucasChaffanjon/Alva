@@ -237,9 +237,8 @@
 }
 @media (max-width: 500px) {
   .partenaire-page {
-    margin-top: 72px; // header mobile
+    margin-top: 72px;
 
-    /* HERO */
     .intro-section {
       height: 320px;
 
@@ -376,7 +375,7 @@
     }
   }
 }
-@media (max-width: 430px) {
+@media (max-width: 1056px) {
   .partenaire-page {
     margin-top: 80px;
   }

@@ -100,6 +100,11 @@ const Services = () => {
               isOpen={openIndex === 2}
               onClick={() => toggle(2)}
             />
+            <div className="cta-final-container">
+              <button className="cta-estimate" onClick={handleEstimateClick}>
+                Estimer mon bien gratuitement
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -137,6 +142,11 @@ const Services = () => {
               isOpen={openIndex === 5}
               onClick={() => toggle(5)}
             />
+            <div className="cta-final-container">
+              <button className="cta-estimate" onClick={handleEstimateClick}>
+                Estimer mon bien gratuitement
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -174,12 +184,12 @@ const Services = () => {
               isOpen={openIndex === 8}
               onClick={() => toggle(8)}
             />
+            <div className="cta-final-container">
+              <button className="cta-estimate" onClick={handleEstimateClick}>
+                Estimer mon bien gratuitement
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="cta-final-container">
-          <button className="cta-estimate" onClick={handleEstimateClick}>
-            Estimer mon bien gratuitement
-          </button>
         </div>
       </div>
     </section>

@@ -66,7 +66,7 @@ const GuidePopup = ({ isOpen, onClose }) => {
             <div className="modal-header">
               <h2>Recevoir le Guide 2026</h2>
               <p>
-                Le guide complet de la conciergerie à Besançon envoyé par email.
+                Le guide complet de la location courte durée envoyé par mail.
               </p>
             </div>
 

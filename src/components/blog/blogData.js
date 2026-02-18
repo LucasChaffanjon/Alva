@@ -6,6 +6,8 @@ import img4 from "../../assets/blogRent.jpeg";
 import img5 from "../../assets/blogRent.jpeg";
 import "./styles/blogData.scss";
 
+const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
 const blogData = (navigate) => [
   {
     id: 1,
@@ -37,7 +39,19 @@ const blogData = (navigate) => [
           location courte durée offre une grande flexibilité, puisqu’elle permet
           d’utiliser son logement quand on le souhaite.
         </p>
-        <p onClick={() => navigate("/contact")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            const isMobile = window.innerWidth <= 1024;
+            navigate("/", { state: { openForm: isMobile } });
+            document
+              .getElementById("menu")
+              ?.scrollIntoView({ behavior: "smooth" });
+
+            if (!isMobile) {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+        >
           👉{" "}
           <strong>
             Demandez une estimation gratuite de votre logement à Besançon
@@ -57,10 +71,18 @@ const blogData = (navigate) => [
           Le régime réel reste souvent le plus intéressant lorsque la location
           génère des revenus importants.
         </p>
-        <p>
+        <strong
+          onClick={() => {
+            navigate("/blog/2");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
           👉 Pour en savoir plus, consultez notre article dédié à la
           réglementation Airbnb à Besançon.
-        </p>
+        </strong>
 
         <h3>Les quartiers les plus rentables de Besançon</h3>
         <p>
@@ -105,7 +127,15 @@ const blogData = (navigate) => [
           +30 % de revenus nets, tout en ne passant plus aucune heure à gérer
           leur location.
         </p>
-        <p onClick={() => navigate("/service")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            navigate("/blog/1");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
           👉{" "}
           <strong>Découvrez nos services de gestion Airbnb à Besançon.</strong>
         </p>
@@ -162,7 +192,19 @@ const blogData = (navigate) => [
           d’enregistrement, que vous devrez afficher sur votre annonce Airbnb.
           Sans ce numéro, la plateforme peut suspendre votre annonce.
         </p>
-        <p onClick={() => navigate("/contact")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            const isMobile = window.innerWidth <= 1024;
+            navigate("/", { state: { openForm: isMobile } });
+            document
+              .getElementById("menu")
+              ?.scrollIntoView({ behavior: "smooth" });
+
+            if (!isMobile) {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+        >
           👉{" "}
           <strong>
             Demandez une estimation gratuite de votre logement à Besançon
@@ -196,10 +238,18 @@ const blogData = (navigate) => [
           déduire toutes les charges et d’amortir le bien, réduisant fortement
           l’imposition.
         </p>
-        <p>
+        <strong
+          onClick={() => {
+            navigate("/blog/3");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
           👉 Consultez aussi notre article : Combien rapporte un Airbnb à
           Besançon ?
-        </p>
+        </strong>
 
         <h3>La CFE : un impôt à ne pas oublier</h3>
         <p>
@@ -228,7 +278,15 @@ const blogData = (navigate) => [
           rester parfaitement conforme tout en optimisant votre annonce, votre
           tarification et la gestion quotidienne.
         </p>
-        <p onClick={() => navigate("/service")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            navigate("/blog/1");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
           👉{" "}
           <strong>Découvrez nos services de gestion Airbnb à Besançon.</strong>
         </p>
@@ -280,7 +338,19 @@ const blogData = (navigate) => [
           meilleurs quartiers. La Boucle et Battant sont les secteurs qui
           affichent les prix les plus élevés.
         </p>
-        <p onClick={() => navigate("/contact")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            const isMobile = window.innerWidth <= 1024;
+            navigate("/", { state: { openForm: isMobile } });
+            document
+              .getElementById("menu")
+              ?.scrollIntoView({ behavior: "smooth" });
+
+            if (!isMobile) {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+        >
           👉{" "}
           <strong>
             Demandez une estimation gratuite de votre logement à Besançon
@@ -328,7 +398,15 @@ const blogData = (navigate) => [
           maximale. C’est précisément ce que nous mettons en place chez Alva
           Conciergerie pour nos propriétaires.
         </p>
-        <p onClick={() => navigate("/service")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            navigate("/blog/5");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
           👉{" "}
           <strong>
             Découvrez nos services pour augmenter vos revenus Airbnb.
@@ -384,7 +462,19 @@ const blogData = (navigate) => [
           de l'année. Les prix par nuit y sont les plus élevés, ce qui permet
           aux studios, T2 et T3 d’atteindre des revenus bruts exceptionnels.
         </p>
-        <p onClick={() => navigate("/contact")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            const isMobile = window.innerWidth <= 1024;
+            navigate("/", { state: { openForm: isMobile } });
+            document
+              .getElementById("menu")
+              ?.scrollIntoView({ behavior: "smooth" });
+
+            if (!isMobile) {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+        >
           👉{" "}
           <strong>
             Demandez une estimation gratuite de votre logement à Besançon
@@ -425,7 +515,15 @@ const blogData = (navigate) => [
           Conciergerie, vous profitez d’un accompagnement complet et d’une
           rentabilité optimisée, sans aucune contrainte.
         </p>
-        <p onClick={() => navigate("/service")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            navigate("/blog/1");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
           👉{" "}
           <strong>Découvrez nos services de gestion Airbnb à Besançon</strong>
         </p>
@@ -483,7 +581,19 @@ const blogData = (navigate) => [
           chronophage, surtout lorsque l’on souhaite maintenir une excellente
           note et maximiser ses revenus.
         </p>
-        <p onClick={() => navigate("/contact")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            const isMobile = window.innerWidth <= 1024;
+            navigate("/", { state: { openForm: isMobile } });
+            document
+              .getElementById("menu")
+              ?.scrollIntoView({ behavior: "smooth" });
+
+            if (!isMobile) {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+        >
           👉{" "}
           <strong>
             Demandez une estimation gratuite de votre logement à Besançon
@@ -502,7 +612,15 @@ const blogData = (navigate) => [
           une expérience fluide aux voyageurs tout en libérant totalement le
           propriétaire.
         </p>
-        <p onClick={() => navigate("/service")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            navigate("/blog/1");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
           👉{" "}
           <strong>
             Découvrez en détail nos services de conciergerie Airbnb à Besançon.
@@ -519,7 +637,17 @@ const blogData = (navigate) => [
           exploiter les périodes de forte demande (événements Micropolis,
           week-ends prolongés, vacances scolaires).
         </p>
-        <p>👉 Voir aussi : Combien rapporte un Airbnb à Besançon en 2026 ?</p>
+        <strong
+          onClick={() => {
+            navigate("/blog/3");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
+          👉 Voir aussi : Combien rapporte un Airbnb à Besançon en 2026 ?
+        </strong>
 
         <h3>Gagner du temps et éviter les erreurs</h3>
         <p>
@@ -530,10 +658,18 @@ const blogData = (navigate) => [
           propriétaires débutants sous-estiment ces contraintes et commettent
           des erreurs coûteuses.
         </p>
-        <p>
+        <strong
+          onClick={() => {
+            navigate("/blog/2");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
           👉 À lire également : Airbnb à Besançon : erreurs fréquentes des
           propriétaires débutants.
-        </p>
+        </strong>
 
         <h3>Pourquoi choisir une conciergerie locale à Besançon ?</h3>
         <p>
@@ -542,7 +678,17 @@ const blogData = (navigate) => [
           voyageurs, La réglementation locale. Cette proximité permet une
           gestion plus réactive et plus personnalisée qu’un acteur national.
         </p>
-        <p>👉 Consultez notre page Nos secteurs – Besançon.</p>
+        <strong
+          onClick={() => {
+            navigate("/besancon");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
+          👉 Consultez notre page Nos secteurs – Besançon.
+        </strong>
 
         <h3>Conclusion</h3>
         <p>
@@ -551,7 +697,15 @@ const blogData = (navigate) => [
           rentabilité, sérénité et performance. Avec Alva Conciergerie, vous
           profitez d’une gestion complète, locale et optimisée, sans contrainte.
         </p>
-        <p onClick={() => navigate("/service")} style={{ cursor: "pointer" }}>
+        <p
+          onClick={() => {
+            navigate("/blog/1");
+            setTimeout(
+              () => window.scrollTo({ top: 0, behavior: "smooth" }),
+              0
+            );
+          }}
+        >
           👉{" "}
           <strong>Découvrez nos services de gestion Airbnb à Besançon.</strong>
         </p>
