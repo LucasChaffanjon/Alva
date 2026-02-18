@@ -62,7 +62,7 @@ const blogData = (navigate) => [
           }}
         >
           👉{" "}
-          <strong>
+          <strong className="link">
             Demandez une estimation gratuite de votre logement à Besançon
             (revenus, prix/nuit, rentabilité).
           </strong>
@@ -81,6 +81,7 @@ const blogData = (navigate) => [
           génère des revenus importants.
         </p>
         <strong
+          className="link"
           onClick={() => {
             navigate("/blog/2");
             setTimeout(
@@ -141,6 +142,7 @@ const blogData = (navigate) => [
           leur location.
         </p>
         <p
+          className="link"
           onClick={() => {
             navigate("/blog/1");
             setTimeout(
@@ -208,6 +210,7 @@ const blogData = (navigate) => [
           Sans ce numéro, la plateforme peut suspendre votre annonce.
         </p>
         <p
+          className="link"
           onClick={() => {
             const isMobile = window.innerWidth <= 1024;
             navigate("/", { state: { openForm: isMobile } });
@@ -255,6 +258,7 @@ const blogData = (navigate) => [
           l’imposition.
         </p>
         <strong
+          className="link"
           onClick={() => {
             navigate("/blog/3");
             setTimeout(
@@ -296,6 +300,7 @@ const blogData = (navigate) => [
           tarification et la gestion quotidienne.
         </p>
         <p
+          className="link"
           onClick={() => {
             navigate("/blog/1");
             setTimeout(
@@ -357,6 +362,7 @@ const blogData = (navigate) => [
           affichent les prix les plus élevés.
         </p>
         <p
+          className="link"
           onClick={() => {
             const isMobile = window.innerWidth <= 1024;
             navigate("/", { state: { openForm: isMobile } });
@@ -418,6 +424,7 @@ const blogData = (navigate) => [
           Conciergerie pour nos propriétaires.
         </p>
         <p
+          className="link"
           onClick={() => {
             navigate("/blog/5");
             setTimeout(
@@ -483,6 +490,7 @@ const blogData = (navigate) => [
           aux studios, T2 et T3 d’atteindre des revenus bruts exceptionnels.
         </p>
         <p
+          className="link"
           onClick={() => {
             const isMobile = window.innerWidth <= 1024;
             navigate("/", { state: { openForm: isMobile } });
@@ -536,6 +544,7 @@ const blogData = (navigate) => [
           rentabilité optimisée, sans aucune contrainte.
         </p>
         <p
+          className="link"
           onClick={() => {
             navigate("/blog/1");
             setTimeout(
@@ -602,6 +611,7 @@ const blogData = (navigate) => [
           note et maximiser ses revenus.
         </p>
         <p
+          className="link"
           onClick={() => {
             const isMobile = window.innerWidth <= 1024;
             navigate("/", { state: { openForm: isMobile } });
@@ -633,6 +643,7 @@ const blogData = (navigate) => [
           propriétaire.
         </p>
         <p
+          className="link"
           onClick={() => {
             navigate("/blog/1");
             setTimeout(
@@ -658,6 +669,7 @@ const blogData = (navigate) => [
           week-ends prolongés, vacances scolaires).
         </p>
         <strong
+          className="link"
           onClick={() => {
             navigate("/blog/3");
             setTimeout(
@@ -679,6 +691,7 @@ const blogData = (navigate) => [
           des erreurs coûteuses.
         </p>
         <strong
+          className="link"
           onClick={() => {
             navigate("/blog/2");
             setTimeout(
@@ -699,6 +712,7 @@ const blogData = (navigate) => [
           gestion plus réactive et plus personnalisée qu’un acteur national.
         </p>
         <strong
+          className="link"
           onClick={() => {
             navigate("/besancon");
             setTimeout(
@@ -718,6 +732,7 @@ const blogData = (navigate) => [
           profitez d’une gestion complète, locale et optimisée, sans contrainte.
         </p>
         <p
+          className="link"
           onClick={() => {
             navigate("/blog/1");
             setTimeout(
