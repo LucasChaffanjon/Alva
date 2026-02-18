@@ -13,7 +13,6 @@ import img23 from "../../assets/blog23.jpeg";
 import img24 from "../../assets/blog24.jpeg";
 import img31 from "../../assets/blog31.jpg";
 import img32 from "../../assets/blog32.jpeg";
-import img41 from "../../assets/blog41.jpg";
 
 import "./styles/blogData.scss";
 
@@ -479,7 +478,6 @@ const blogData = (navigate) => [
           performance du bien. Voici un aperçu clair des zones les plus
           prometteuses.
         </p>
-        <img src={img41} alt="" />
 
         <h3>La Boucle : le secteur premium</h3>
         <p>
