@@ -92,13 +92,13 @@ const Process = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) =>
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) entry.target.classList.add("visible");
-        }),
-      { threshold: 0.2 }
+        });
+      },
+      { threshold: 0.1 }
     );
-
     refs.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -107,11 +107,7 @@ const Process = () => {
     if (cta === "Remplir notre formulaire") {
       const section = document.getElementById("menu");
       if (section) {
-        // On ajoute un petit offset pour ne pas coller le haut de l'écran
-        const yOffset = -80;
-        const y =
-          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
+        window.scrollTo({ top: section.offsetTop - 80, behavior: "smooth" });
       }
     } else {
       window.open(CALENDLY_URL, "_blank");
@@ -131,16 +127,21 @@ const Process = () => {
             key={i}
             className="step-card"
             ref={(el) => (refs.current[i] = el)}
-            style={{ "--index": i + 1 }} // On passe l'index au CSS
+            style={{
+              "--index": i,
+              "--z-index": i + 1,
+            }}
           >
             <div className="card-content">
               <div className="text-block">
                 <h2>{s.title}</h2>
-                {s.content}
+                <div className="content-inner">{s.content}</div>
               </div>
               <div className="media-block">
                 <img src={s.image} alt={s.title} />
-                <button onClick={() => handleClick(s.cta)}>{s.cta}</button>
+                <button className="cta-btn" onClick={() => handleClick(s.cta)}>
+                  {s.cta}
+                </button>
               </div>
             </div>
           </div>

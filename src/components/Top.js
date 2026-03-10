@@ -43,7 +43,15 @@ function Top() {
   return (
     <div className={`top ${scrolled ? "scrolled" : ""}`}>
       <div className="logo">
-        <img src={logo} alt="logo" onClick={() => goTo("/")} />
+        <img
+          src={logo}
+          alt="logo"
+          onClick={() => {
+            navigate("/");
+            const section = document.getElementById("menu");
+            section?.scrollIntoView({ behavior: "smooth" });
+          }}
+        />
       </div>
 
       <ul className="nav-desktop">

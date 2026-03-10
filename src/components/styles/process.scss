@@ -1,43 +1,51 @@
 #process-cont {
-  padding: 80px 10%;
-  background: #fdfdfd;
-  overflow-x: clip;
+  padding: 80px 5%;
+  background: #f9fbf9; // Un blanc/vert très pâle et apaisant
+  overflow: visible;
 
   .title {
-    color: var(--h);
-    font-size: 2.8rem;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
     font-family: "Inria Serif", serif;
+    color: var(--h);
+    line-height: 1.2;
     span {
-      font-size: 1.8rem;
       color: var(--green);
+      font-size: 0.6em;
       display: block;
+      margin-top: 10px;
     }
   }
 
   .steps-container {
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding-bottom: 0;
+    gap: 30vh; // Grand espace pour laisser défiler avant le sticky
+    padding-bottom: 20vh;
 
     .step-card {
       position: sticky;
-      top: 130px;
-      width: 100%;
-      max-width: 1100px;
-      min-height: 450px;
-      display: flex;
-      align-items: center;
+      z-index: var(--z-index);
       background: white;
+      width: 100%;
       border-radius: 30px;
+      padding: 50px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+
+      // Design propre et moderne : ombre douce et bordure gauche
       border-left: 10px solid var(--green);
-      z-index: var(--index);
-      opacity: 1;
-      transform: translateY(50px);
-      padding: 15px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+
+      // DESKTOP : S'arrête au milieu (environ 25% de la hauteur de l'écran)
+      // On ajoute un petit décalage pour chaque carte pour l'effet de pile
+      top: calc(25vh + (var(--index) * 30px));
+
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      opacity: 0;
+      transform: translateY(40px);
+
       &.visible {
         opacity: 1;
         transform: translateY(0);
@@ -46,44 +54,51 @@
       .card-content {
         display: flex;
         align-items: center;
-        gap: 3rem;
-        width: 100%;
+        gap: 4rem;
 
         .text-block {
-          flex: 1.2;
+          flex: 1.3;
           h2 {
             font-size: 1.8rem;
             color: var(--h);
-            margin-bottom: 1.2rem;
             font-family: "Inria Serif", serif;
+            margin-bottom: 1.5rem;
           }
-          p {
-            font-size: 1.05rem;
-            line-height: 1.6;
+          .content-inner p {
+            font-size: 1.1rem;
+            line-height: 1.7;
             color: #444;
+            margin-bottom: 1rem;
+            strong {
+              color: var(--h);
+              font-weight: 700;
+            }
           }
         }
 
         .media-block {
-          flex: 0.8;
+          flex: 0.7;
           display: flex;
           flex-direction: column;
-          align-items: center;
           img {
-            margin-top: -10px;
             width: 100%;
-            min-height: 170px;
+            max-height: 250px;
             object-fit: contain;
+            margin-bottom: 25px;
           }
-          button {
-            margin-top: 20px;
-            padding: 15px;
+          .cta-btn {
+            padding: 16px;
             background: var(--green);
             color: white;
             border: none;
             border-radius: 12px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            }
           }
         }
       }
@@ -91,49 +106,48 @@
   }
 }
 
-/* --- RESPONSIVE MOBILE (CORRECTIF HAUTEUR) --- */
+/* --- RESPONSIVE MOBILE OPTIMISÉ --- */
 @media (max-width: 768px) {
   #process-cont {
     padding: 60px 15px;
 
+    .title {
+      margin-bottom: 60px;
+    }
+
     .steps-container {
-      gap: 5vh; // Très peu d'espace pour un effet "jeu de cartes"
+      gap: 10vh; // Réduit pour le mobile
 
       .step-card {
-        top: 100px;
-        padding: 5px;
-        height: 580px;
+        padding: 25px;
+        // MOBILE : On remonte un peu le sticky pour laisser de la place au contenu
+        top: calc(15vh + (var(--index) * 20px));
 
         .card-content {
           flex-direction: column;
-          justify-content: space-between;
-          height: 100%;
-          gap: 1rem;
+          gap: 1.5rem;
 
           .text-block {
             text-align: center;
             h2 {
               font-size: 1.3rem;
-              margin-bottom: 0.5rem;
+              margin-bottom: 1rem;
             }
-            p {
-              font-size: 0.9rem;
-              line-height: 1.4;
+            .content-inner p {
+              font-size: 0.95rem;
               margin-bottom: 0.5rem;
-              // Optionnel : limite à 3 lignes si le texte est trop long sur petit mobile
-              display: -webkit-box;
-              -webkit-line-clamp: 4;
-              -webkit-box-orient: vertical;
-              overflow: hidden;
             }
           }
 
           .media-block {
+            width: 100%;
             img {
-              height: 70%;
+              max-height: 180px;
+              margin-bottom: 15px;
             }
-            button {
-              padding: 12px;
+            .cta-btn {
+              font-size: 0.9rem;
+              padding: 14px;
             }
           }
         }
