@@ -158,53 +158,62 @@ const Menu = () => {
             </button>
 
             <form className="form-mob" onSubmit={handleSubmit}>
-              <div>
+              <div className="full">
                 <label>Adresse du bien</label>
                 <input type="text" name="entry.1261560012" required />
               </div>
-              <div>
-                <label>Ville</label>
-                <input type="text" name="entry.1696718327" required />
+
+              <div className="row">
+                <div>
+                  <label>Ville</label>
+                  <input type="text" name="entry.1696718327" required />
+                </div>
+                <div>
+                  <label>Type de bien</label>
+                  <select name="entry.410455139" required defaultValue="">
+                    <option value="" disabled hidden>
+                      -- Sélectionnez --
+                    </option>
+                    <option>Studio</option>
+                    <option>T2</option>
+                    <option>T3</option>
+                    <option>T4</option>
+                    <option>Maison</option>
+                    <option>Autres</option>
+                  </select>
+                </div>
               </div>
-              <div>
-                <label>Type de bien</label>
-                <select name="entry.410455139" required defaultValue="">
-                  <option value="" disabled hidden>
-                    -- Sélectionnez --
-                  </option>
-                  <option>Studio</option>
-                  <option>T2</option>
-                  <option>T3</option>
-                  <option>T4</option>
-                  <option>Maison</option>
-                  <option>Autres</option>
-                </select>
+
+              <div className="row">
+                <div>
+                  <label>Nb de chambres</label>
+                  <select name="entry.23772495" required defaultValue="">
+                    <option value="" disabled hidden>
+                      -- Sélectionnez --
+                    </option>
+                    {renderNumberOptions()}
+                  </select>
+                </div>
+                <div>
+                  <label>Nb de salles de bains</label>
+                  <select name="entry.298792479" required defaultValue="">
+                    <option value="" disabled hidden>
+                      -- Sélectionnez --
+                    </option>
+                    {renderNumberOptions()}
+                  </select>
+                </div>
               </div>
-              <div>
-                <label>Nombre de chambres</label>
-                <select name="entry.23772495" required defaultValue="">
-                  <option value="" disabled hidden>
-                    -- Sélectionnez --
-                  </option>
-                  {renderNumberOptions()}
-                </select>
-              </div>
-              <div>
-                <label>Nombre de salles de bains</label>
-                <select name="entry.298792479" required defaultValue="">
-                  <option value="" disabled hidden>
-                    -- Sélectionnez --
-                  </option>
-                  {renderNumberOptions()}
-                </select>
-              </div>
-              <div>
-                <label>Adresse mail</label>
-                <input type="email" name="entry.1127713591" required />
-              </div>
-              <div>
-                <label>Numéro de téléphone</label>
-                <input type="tel" name="entry.631556959" required />
+
+              <div className="row">
+                <div>
+                  <label>Adresse mail</label>
+                  <input type="email" name="entry.1127713591" required />
+                </div>
+                <div>
+                  <label>Téléphone</label>
+                  <input type="tel" name="entry.631556959" required />
+                </div>
               </div>
 
               <span>

@@ -1,44 +1,65 @@
 .related-articles {
   margin: 50px 0;
-  padding: 30px;
-  background: linear-gradient(
-    145deg,
-    #ffffff,
-    #f1f5f3
-  ); // Dégradé très léger vers le vert
-  border-radius: 20px;
-  border: 1px solid rgba(var(--green-rgb), 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 35px 40px;
+  background: linear-gradient(160deg, #fdfcfb 0%, #f7f3ee 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(var(--green-rgb), 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03), 0 12px 40px rgba(0, 0, 0, 0.06);
   position: relative;
   overflow: hidden;
 
-  // Petit rappel de couleur discret sur le côté
+  // Bande latérale gauche plus épaisse et avec dégradé
   &::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 5px;
     height: 100%;
-    background: var(--green);
+    background: linear-gradient(
+      180deg,
+      var(--green),
+      rgba(var(--green-rgb), 0.3)
+    );
+    border-radius: 0 3px 3px 0;
+  }
+
+  // Touche décorative discrète en haut à droite
+  &::after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(var(--green-rgb), 0.05) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
   }
 
   h3 {
     font-family: "Inria Serif", serif;
-    font-size: 1.4rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 22px;
     color: var(--h);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    letter-spacing: 0.01em;
 
-    // Ajoute une petite puce stylisée avant le titre
     &::after {
       content: "";
       flex: 1;
       height: 1px;
-      background: rgba(0, 0, 0, 0.05);
-      margin-left: 10px;
+      background: linear-gradient(
+        90deg,
+        rgba(var(--green-rgb), 0.2),
+        transparent
+      );
     }
   }
 
@@ -46,40 +67,49 @@
     list-style: none;
     padding: 0;
     display: grid;
-    gap: 12px;
+    gap: 10px;
 
     li {
       a {
-        color: #444;
+        color: #4a4a4a;
         text-decoration: none;
         font-weight: 500;
-        font-size: 1.05rem;
+        font-size: 1rem;
         display: flex;
         align-items: center;
-        padding: 12px 15px;
-        background: white;
-        border-radius: 12px;
-        border: 1px solid transparent;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+        padding: 13px 18px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 14px;
+        border: 1px solid rgba(var(--green-rgb), 0.08);
+        backdrop-filter: blur(4px);
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.35s ease, border-color 0.35s ease, color 0.2s ease,
+          background 0.35s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
 
-        // L'icône flèche
         &::before {
-          content: "\2192"; // Flèche Unicode fine
-          margin-right: 15px;
+          content: "→";
+          margin-right: 14px;
           color: var(--green);
-          font-size: 1.2rem;
-          transition: transform 0.3s ease;
+          font-size: 1rem;
+          opacity: 0.7;
+          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+            opacity 0.2s ease;
+          display: inline-block;
         }
 
         &:hover {
           color: var(--green);
-          border-color: rgba(var(--green-rgb), 0.2);
-          transform: translateX(8px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+          background: rgba(255, 255, 255, 1);
+          border-color: rgba(var(--green-rgb), 0.25);
+          transform: translateX(6px);
+          box-shadow: 0 6px 20px rgba(var(--green-rgb), 0.08),
+            0 2px 6px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
 
           &::before {
-            transform: translateX(3px);
+            transform: translateX(4px);
+            opacity: 1;
           }
         }
       }
@@ -87,19 +117,19 @@
   }
 }
 
-// Adaptations mobiles
 @media (max-width: 600px) {
   .related-articles {
-    padding: 20px;
+    padding: 25px 22px;
     margin: 30px 0;
+    border-radius: 18px;
 
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
 
     ul li a {
       font-size: 0.95rem;
-      padding: 10px;
+      padding: 11px 14px;
     }
   }
 }

@@ -163,13 +163,15 @@
   }
 }
 
+/* ================= MODALE MOBILE ================= */
 .form-modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
   display: flex;
   align-items: flex-end;
-  margin: 10% 5% 5% 5%;
+  margin: 0;
+  margin-top: 100px;
 
   .modal-backdrop {
     position: absolute;
@@ -180,9 +182,11 @@
     position: relative;
     width: 100%;
     background: white;
+    // Coins arrondis seulement en haut, la modale part du bas
     border-radius: 25px;
-    padding: 35px 20px 30px;
-    margin-bottom: 90px;
+    padding: 28px 18px 20px;
+    // dvh = dynamic viewport height : tient compte de la barre Safari
+    max-height: 92dvh;
     overflow-y: auto;
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
     animation: slideUp 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -190,25 +194,25 @@
     &::before {
       content: "";
       position: absolute;
-      top: 12px;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 45px;
-      height: 5px;
+      width: 40px;
+      height: 4px;
       background: #e0e0e0;
       border-radius: 10px;
     }
 
     .close-btn {
       position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 2rem;
+      top: 12px;
+      right: 14px;
+      font-size: 1.8rem;
       border: none;
       background: #f0f0f0;
       color: #333;
-      width: 35px;
-      height: 35px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -217,67 +221,111 @@
   }
 }
 
+/* ================= FORMULAIRE MOBILE ================= */
 .form-mob {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 
-  div {
+  // Champ pleine largeur (Adresse du bien)
+  .full {
     display: flex;
     flex-direction: column;
     label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       text-transform: uppercase;
       color: var(--green);
       text-align: left;
     }
-    input,
-    select {
-      padding: 10px;
+    input {
+      padding: 11px 12px;
       border: 1px solid #ddd;
-      border-radius: 12px;
-      font-size: 1rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
       background: #fafafa;
-      color: #333; // Force le texte en noir
-
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-
+      color: #333;
       &:focus {
         outline: none;
         border-color: var(--green);
         background: white;
       }
     }
+  }
 
-    /* Ajout d'une flèche personnalisée pour les select car appearance:none l'enlève */
-    select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 15px center;
-      background-size: 14px;
+  // Lignes 2 colonnes
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        color: var(--green);
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      input,
+      select {
+        padding: 11px 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        background: #fafafa;
+        color: #333;
+        width: 100%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        &:focus {
+          outline: none;
+          border-color: var(--green);
+          background: white;
+        }
+      }
+      select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 12px;
+        padding-right: 28px;
+      }
     }
   }
 
   span {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     text-align: center;
-    color: #666;
-    line-height: 1.5;
+    color: #888;
+    line-height: 1.4;
+    margin: 2px 0;
   }
 
   button[type="submit"] {
-    margin-top: 10px;
-    padding: 18px;
+    padding: 15px;
     background: var(--green);
     color: white;
     border: none;
-    border-radius: 14px;
+    border-radius: 12px;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .success-message {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.9rem;
   }
 }
 
