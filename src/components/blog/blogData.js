@@ -36,7 +36,6 @@ import imgs12 from "../../assets/blogs12.jpeg";
 import img121 from "../../assets/blog121.jpeg";
 import img122 from "../../assets/blog122.jpeg";
 import img123 from "../../assets/blog123.jpeg";
-import img124 from "../../assets/blog124.jpeg";
 
 import "./styles/blogData.scss";
 
