@@ -72,15 +72,12 @@ const blogData = (navigate) => [
         </p>
         <p
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -233,15 +230,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -385,15 +379,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -509,20 +500,7 @@ const blogData = (navigate) => [
           de l'année. Les prix par nuit y sont les plus élevés, ce qui permet
           aux studios, T2 et T3 d'atteindre des revenus bruts exceptionnels.
         </p>
-        <p
-          className="link"
-          onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
-          }}
-        >
+        <p className="link">
           👉{" "}
           <strong>
             Demandez une estimation gratuite de votre logement à Besançon
@@ -634,15 +612,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -803,15 +778,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -964,15 +936,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -1112,15 +1081,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -1263,15 +1229,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -1418,15 +1381,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -1586,15 +1546,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}
@@ -1715,15 +1672,12 @@ const blogData = (navigate) => [
         <p
           className="link"
           onClick={() => {
-            const isMobile = window.innerWidth <= 1024;
-            navigate("/", { state: { openForm: isMobile } });
-            document
-              .getElementById("menu")
-              ?.scrollIntoView({ behavior: "smooth" });
-
-            if (!isMobile) {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
+            navigate("/", {
+              state: {
+                openForm: true,
+                scrollToTop: true,
+              },
+            });
           }}
         >
           👉{" "}

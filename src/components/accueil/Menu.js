@@ -8,8 +8,23 @@ const Menu = () => {
   const location = useLocation();
 
   useEffect(() => {
+    if (location.state?.scrollToTop) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+
     if (location.state?.openForm) {
       setShowForm(true);
+    }
+
+    if (location.state?.openForm || location.state?.scrollToTop) {
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
+
+  useEffect(() => {
+    if (location.state?.scrollToMenu) {
+      const section = document.getElementById("menu");
+      section?.scrollIntoView({ behavior: "smooth" });
       window.history.replaceState({}, document.title);
     }
   }, [location]);
@@ -52,7 +67,6 @@ const Menu = () => {
     };
   }, [showForm]);
 
-  // Fonction utilitaire pour générer les options de 1 à 10
   const renderNumberOptions = () => {
     return [...Array(10)].map((_, i) => (
       <option key={i + 1} value={i + 1}>

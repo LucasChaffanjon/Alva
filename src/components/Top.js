@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./styles/Top.scss";
 import logo from "../assets/logo.webp";
 
 function Top() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
   // Mobile states
@@ -40,18 +41,24 @@ function Top() {
     setSectorsOpen(false);
   };
 
+  const handleLogoClick = () => {
+    setMenuOpen(false);
+    setSectorsOpen(false);
+
+    // Si on est déjà sur la page d'accueil
+    if (location.pathname === "/") {
+      const section = document.getElementById("menu");
+      section?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Sinon on navigue vers / puis la page d'accueil gérera le scroll
+      navigate("/", { state: { scrollToMenu: true } });
+    }
+  };
+
   return (
     <div className={`top ${scrolled ? "scrolled" : ""}`}>
       <div className="logo">
-        <img
-          src={logo}
-          alt="logo"
-          onClick={() => {
-            navigate("/");
-            const section = document.getElementById("menu");
-            section?.scrollIntoView({ behavior: "smooth" });
-          }}
-        />
+        <img src={logo} alt="logo" onClick={handleLogoClick} />
       </div>
 
       <ul className="nav-desktop">
