@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles/guide.scss";
-import guide from "../assets/guide.svg";
+import guide from "../assets/guide.webp";
 import GuidePopup from "./GuidePopup";
 
 const Guide = () => {

@@ -3,7 +3,7 @@ import "./styles/blog.scss";
 import { useNavigate } from "react-router-dom";
 import blogData from "./blogData";
 
-import headerImg from "../../assets/blog.svg";
+import headerImg from "../../assets/blog.webp";
 
 // MODIFICATION ICI : On ne définit plus "articles" ici car on a besoin de "navigate" qui est dans le composant
 const CATEGORIES = [

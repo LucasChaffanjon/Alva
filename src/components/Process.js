@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import "./styles/process.scss";
-import process1 from "../assets/process1.svg";
-import process2 from "../assets/process2.svg";
-import process3 from "../assets/process3.svg";
-import process4 from "../assets/process4.svg";
+import process1 from "../assets/process1.webp";
+import process2 from "../assets/process2.webp";
+import process3 from "../assets/process3.webp";
+import process4 from "../assets/process4.webp";
 
 const CALENDLY_URL = "https://calendly.com/alvaconciergerie/30min";
 

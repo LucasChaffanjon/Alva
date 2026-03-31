@@ -3,11 +3,11 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles/secteur.scss";
 
-import headerBg from "../../assets/besanconmap.svg";
-import besanconCity from "../../assets/besancon.svg";
-import ppa from "../../assets/ppa.jpeg";
-import ppb from "../../assets/ppb.jpeg";
-import bmob from "../../assets/bmob.svg";
+import headerBg from "../../assets/besanconmap.webp";
+import besanconCity from "../../assets/besancon.webp";
+import ppa from "../../assets/ppa.webp";
+import ppb from "../../assets/ppb.webp";
+import bmob from "../../assets/bmob.webp";
 
 const Besancon = () => {
   const navigate = useNavigate();

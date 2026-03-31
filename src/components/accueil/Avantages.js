@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles/Avantages.scss";
-import euro from "../../assets/euro.png";
-import peace from "../../assets/peace.png";
-import balance from "../../assets/balance.png";
+import euro from "../../assets/euro.webp";
+import peace from "../../assets/peace.webp";
+import balance from "../../assets/balance.webp";
 import { useNavigate } from "react-router-dom";
 
 const Avantages = () => {

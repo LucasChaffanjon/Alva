@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import "./styles/faq.scss";
 import { useNavigate } from "react-router-dom";
 
-import headerImg from "../../assets/faq.svg";
+import headerImg from "../../assets/faq.webp";
 
-import img1 from "../../assets/faq1.svg";
-import img2 from "../../assets/faq2.svg";
-import img3 from "../../assets/faq3.svg";
-import img4 from "../../assets/faq4.svg";
-import img5 from "../../assets/faq5.svg";
-import img6 from "../../assets/faq6.svg";
+import img1 from "../../assets/faq1.webp";
+import img2 from "../../assets/faq2.webp";
+import img3 from "../../assets/faq3.webp";
+import img4 from "../../assets/faq4.webp";
+import img5 from "../../assets/faq5.webp";
+import img6 from "../../assets/faq6.webp";
 
 const Faq = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/exemple.scss";
-import process4 from "../assets/menuimg.svg";
+import process4 from "../assets/menuimg.webp";
 
 const Exemple = () => {
   return (

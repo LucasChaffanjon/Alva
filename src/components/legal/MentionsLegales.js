@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/MentionsLegales.scss";
-import headerImg from "../../assets/legal.jpg";
+import headerImg from "../../assets/legal.webp";
 
 const MentionsLegales = () => {
   return (

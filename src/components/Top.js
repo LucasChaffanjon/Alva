@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/Top.scss";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.webp";
 
 function Top() {
   const navigate = useNavigate();

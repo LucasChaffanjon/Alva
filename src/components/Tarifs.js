@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/tarifs.scss";
-import image from "../assets/tarif.svg";
+import image from "../assets/tarif.webp";
 import { useNavigate } from "react-router-dom";
 
 const Tarifs = () => {

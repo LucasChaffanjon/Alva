@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/services.scss";
 
-import headerImg from "../../assets/servicesbg.svg";
-import photo1 from "../../assets/temps.svg";
-import photo2 from "../../assets/argent.svg";
-import photo3 from "../../assets/serenite.svg";
+import headerImg from "../../assets/servicesbg.webp";
+import photo1 from "../../assets/temps.webp";
+import photo2 from "../../assets/argent.webp";
+import photo3 from "../../assets/serenite.webp";
 
 const AccordionItem = ({ title, content, isOpen, onClick }) => {
   return (

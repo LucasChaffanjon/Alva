@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles/contact.scss";
-import imgbg from "../../assets/accueil2.png";
-import contactImg from "../../assets/img.svg";
+import imgbg from "../../assets/accueil.webp";
+import contactImg from "../../assets/img.webp";
 
 const Contact = () => {
   const [status, setStatus] = useState("");

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles/devenirpartenaire.scss";
-import img1 from "../../assets/partenaire.svg";
+import img1 from "../../assets/partenaire.webp";
 
 const DevenirPartenaire = () => {
   const [status, setStatus] = useState("");

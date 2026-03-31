@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles/secteurs.scss";
-import ping from "../../assets/ping.png";
+import ping from "../../assets/ping.webp";
 import { useNavigate } from "react-router-dom";
 
 const Satisfaction = () => {

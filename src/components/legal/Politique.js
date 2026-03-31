@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/Politique.scss";
-import headerImg from "../../assets/politique.jpg";
+import headerImg from "../../assets/politique.webp";
 
 const Politique = () => {
   return (

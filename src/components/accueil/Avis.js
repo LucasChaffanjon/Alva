@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./styles/avis.scss";
-import guillemets from "../../assets/guillemets.png";
+import guillemets from "../../assets/guillemets.webp";
 
 const Avis = () => {
   const testimonials = [
