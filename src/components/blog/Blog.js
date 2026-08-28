@@ -5,40 +5,52 @@ import blogData from "./blogData";
 
 import headerImg from "../../assets/blog.webp";
 
-// MODIFICATION ICI : On ne définit plus "articles" ici car on a besoin de "navigate" qui est dans le composant
-const CATEGORIES = [
-  "Fiscalité",
-  "Décoration",
-  "Tendances",
-  "Activités",
-  "Optimisation des revenus",
-];
+const CITIES = ["Besançon", "Villeurbanne"];
+const CATEGORIES = ["Fiscalité", "Tendances", "Optimisation des revenus"];
 
 const Blog = () => {
   const navigate = useNavigate();
 
-  // MODIFICATION ICI : On génère le tableau d'articles en passant "navigate" à la fonction blogData
   const articles = useMemo(() => blogData(navigate), [navigate]);
 
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState(null); // string ou null
   const [page, setPage] = useState(0); // pagination pour le slider (2 articles)
   const [activeArticle, setActiveArticle] = useState(null); // article complet (popup)
+  const [activeCity, setActiveCity] = useState(null);
 
   const pageSize = 2;
+
+  const getArticleCity = (article) => {
+    const text = `${article.title} ${article.excerpt}`.toLowerCase();
+
+    if (text.includes("besançon") || text.includes("besancon")) {
+      return "Besançon";
+    }
+
+    if (text.includes("villeurbanne")) {
+      return "Villeurbanne";
+    }
+
+    return null;
+  };
 
   const filteredArticles = useMemo(() => {
     const q = search.trim().toLowerCase();
 
-    // On utilise les articles générés plus haut
     let list = articles;
+
+    // filtre ville
+    if (activeCity) {
+      list = list.filter((a) => getArticleCity(a) === activeCity);
+    }
 
     // filtre catégorie
     if (activeCategory) {
       list = list.filter((a) => a.category === activeCategory);
     }
 
-    // filtre recherche sur titre + excerpt
+    // filtre recherche
     if (q) {
       list = list.filter(
         (a) =>
@@ -48,7 +60,7 @@ const Blog = () => {
     }
 
     return list;
-  }, [search, activeCategory, articles]); // Ajout de "articles" en dépendance
+  }, [search, activeCity, activeCategory, articles]);
 
   const totalPages = Math.max(1, Math.ceil(filteredArticles.length / pageSize));
 
@@ -68,6 +80,11 @@ const Blog = () => {
 
   const goNext = () => {
     setPage((p) => Math.min(totalPages - 1, p + 1));
+  };
+
+  const handleCityClick = (city) => {
+    setActiveCity((prev) => (prev === city ? null : city));
+    setPage(0);
   };
 
   const handleCategoryClick = (cat) => {
@@ -132,6 +149,21 @@ const Blog = () => {
             </div>
           </div>
 
+          <div className="cities">
+            <h3>Ville</h3>
+            <ul>
+              {CITIES.map((city) => (
+                <li
+                  key={city}
+                  className={activeCity === city ? "active" : ""}
+                  onClick={() => handleCityClick(city)}
+                >
+                  {city}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="categories">
             <h3>Catégories</h3>
             <ul>
@@ -145,10 +177,14 @@ const Blog = () => {
                 </li>
               ))}
             </ul>
-            {activeCategory && (
+            {(activeCity || activeCategory) && (
               <button
                 className="reset-filters"
-                onClick={() => setActiveCategory(null)}
+                onClick={() => {
+                  setActiveCity(null);
+                  setActiveCategory(null);
+                  setPage(0);
+                }}
               >
                 Réinitialiser les filtres
               </button>

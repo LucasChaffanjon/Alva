@@ -139,7 +139,6 @@ root.render(
             </>
           }
         />
-        <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogArticle />} />
       </Routes>
     </Router>
